@@ -3,23 +3,23 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
     watch:
       scripts:
-        files: [ '**/*.coffee' ]
+        files: [ 'scripts/**/*.coffee' ]
         tasks: [ 'coffee', 'execute' ]
 
     coffee:
       glob_to_multiple:
         expand: true
         flatten: false
-        cwd: ''
+        cwd: 'scripts/'
         src: ['**/*.coffee']
-        dest: 'build'
+        dest: 'scripts/build'
         ext: '.js'
         options:
           sourceMap: true
 
     execute:
       target:
-        src: [ 'build/main.js' ]
+        src: [ 'scripts/build/index.js' ]
 
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-coffee')
@@ -27,5 +27,6 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'default', [
     'coffee:glob_to_multiple'
+    'execute'
     'watch'
   ]

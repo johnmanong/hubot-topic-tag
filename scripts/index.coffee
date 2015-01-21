@@ -7,7 +7,6 @@
 # What it will do someday:
 # - warn authors of commits between tags that
 # - cut tag on remote for project
-#
 
 
 ## Test and temp code only
@@ -18,6 +17,7 @@ TEST_TOPIC = 'queue: web-54.1(ong), rosco-12.2(miller), docstor-11.2(andrew) | p
 main = () ->
   parsedTopic = new ChatTopic().fromString TEST_TOPIC
 
+  console.log 'test start...'
   if parsedTopic.toString() != TEST_TOPIC
     throw new Error('something wrong with to string')
 
@@ -97,8 +97,7 @@ main = () ->
   if parsedTopic.queueTopic.toString() != 'queue: ~'
     throw error
 
-
-
+  console.log 'test end...'
 
 class ChatTopic
   toString: () ->
