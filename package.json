@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ong",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-cli": "^0.1.13"
+  }
 }
